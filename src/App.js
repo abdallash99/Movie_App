@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     const getMovies = async () => {
-      const result = await axios.get('https://imdb-api.com/en/API/Top250Movies/k_x5AX4Lux');
+      const result = await axios.get('https://imdb-api.com/en/API/Top250Movies/k_NmPN88pL');
       let movies = [];
       for (let b of result.data.items) {
         movies = movies.concat(b);
