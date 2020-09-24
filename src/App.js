@@ -35,11 +35,11 @@ function App() {
     setState({ ...state, search: e.target.value })
   }
   const serchRegx = new RegExp(state.search, 'i');
-  const movies = state.search !== '' ? state.movies.filter(item => serchRegx.test(item.title)) : state.movies.slice(state.start, state.start + pageSize);
+  const movies = state.search !== '' ? state.movies.filter(item => serchRegx.test(item.title)).slice(state.start, state.start + pageSize) : state.movies.slice(state.start, state.start + pageSize);
   return (
     <Layout className="layout">
       <NavBar search={state.search} change={change} />
-      {state.loading ? <Spinner /> : <Main onChange={onChange} current={state.page} total={Math.ceil(movies.length * 1.0 / pageSize * 1.0)} movies={movies} />}
+      {state.loading ? <Spinner /> : <Main onChange={onChange} current={state.page} total={Math.ceil(state.movies.length * 1.0 / pageSize * 1.0)} movies={movies} />}
 
     </Layout>
   );
