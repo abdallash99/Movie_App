@@ -39,7 +39,7 @@ function App() {
   return (
     <Layout className="layout">
       <NavBar search={state.search} change={change} />
-      {state.loading ? <Spinner /> : <Main onChange={onChange} current={state.page} total={Math.ceil(state.movies.length * 1.0 / pageSize * 1.0)} movies={movies} />}
+      {state.loading ? <Spinner /> : <Main onChange={onChange} current={state.page} total={Math.ceil(state.search === '' ? state.movies.length : state.movies.filter(item => serchRegx.test(item.title)).length * 1.0 / pageSize * 1.0)} movies={movies} />}
 
     </Layout>
   );
